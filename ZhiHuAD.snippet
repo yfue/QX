@@ -1,0 +1,7 @@
+#  qx知乎App去广告
+# 开屏页广告,首页右下角悬浮框,推荐列表广告,问题回答列表广告,具体回答下广告
+hostname = api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com
+^https:\/\/(api|lens|www)\.zhihu\.com\/(moments(\/recommend)?\?(action|feed_type|limit)|topstory\/recommend|.*\/questions|market\/header|people|appview\/(v2|p)\/(answer\/)?\d+\?no\_image\=false(\&article\_fixed\_bottom\=1)?\&X\-SUGER\=|api\/videos\/\d+\/recommend) url script-response-body https://raw.githubusercontent.com/primovist/ScriptsForSurge/master/Scripts/Zhihu.js
+
+// 回答最下方的广告
+^https://www\.zhihu\.com/api/v4/answers/\d+/recommendations url script-response-body https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/zhihu/zhihu_answer.js
